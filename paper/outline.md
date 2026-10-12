@@ -151,6 +151,17 @@ up to length 8.
 - Why does N = 13 fail? This is open. Simple projection and residue arguments
   don't explain it.
 - Beyond N = 15: cost, and the case of 12 codes.
+  - Work of the composition split, left (A-pairs × C-pairs) plus right
+    (B-multisets of size 4), as printed by `exhaustive/t2abc -n`:
+    N = 14: 1.95e10 + 4.61e10; N = 15: 3.11e11 + 7.35e11;
+    N = 16: 4.68e12 + 1.17e13; N = 17: 7.49e13 + 1.88e14. Each length costs
+    about 16 times the previous one.
+  - The same argument shows that a binary type-2 set needs a multiple of 4
+    codes (K/4 A + K/2 B + K/4 C). Check how this relates to Sulzer (1993),
+    p. 999, which discusses sets whose number of codes is a multiple of 4.
+  - For 12 codes the composition is 3 A + 6 B + 3 C; a 6 + 6 split is too
+    large for an exhaustive search, so 12 codes need the heuristic search
+    (`fastcodes vsearch`, which now fixes the composition).
 
 ## Data and code availability
 

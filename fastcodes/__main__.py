@@ -216,7 +216,8 @@ def cmd_exhaust(args):
 def cmd_vsearch(args):
     from . import vsearch
     for L in _lengths(args.length):
-        r = vsearch.search_parallel(L, args.codes, args.time, args.workers)
+        r = vsearch.search_parallel(L, args.codes, args.time, args.workers,
+                                    composition=not args.no_composition)
         tag = 'FOUND type-2 set' if r['found'] else 'not found'
         print(f"vector-space search, N={L}, {args.codes} codes: {tag} | closest peak {r['peak']:g} "
               f"(verified {r['verified_peak']:g}) | {r['time']:.0f}s, {r['runs']} runs, {r['workers']} workers")
@@ -283,6 +284,8 @@ def main(argv=None):
     vs.add_argument('--codes', type=int, default=8)
     vs.add_argument('--time', type=float, default=600.0, help='seconds per length')
     vs.add_argument('--workers', type=int, default=0, help='processes (default: all cores)')
+    vs.add_argument('--no-composition', action='store_true',
+                    help="don't fix the forced type composition (K/4 A + K/2 B + K/4 C)")
     vs.add_argument('--out', default='results/vsearch.jsonl')
     vs.set_defaults(func=cmd_vsearch)
 

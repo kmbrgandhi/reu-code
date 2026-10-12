@@ -38,3 +38,15 @@ def test_vector_search_finds_short_lengths():
     for N in (9, 10, 11, 12):
         r = vsearch.search(N, 8, time_limit=30, seed=1)
         assert r['found'] and r['verified_peak'] == 0, N
+
+
+def test_vector_search_with_forced_composition():
+    """Every slot keeps its type (K/4 A, K/2 B, K/4 C); the search still finds sets."""
+    import pytest
+    for N in (9, 10, 11, 12):
+        r = vsearch.search(N, 8, time_limit=30, seed=2, composition=True)
+        assert r['found'] and r['verified_peak'] == 0, N
+        types = sorted(vsearch.code_types(np.array(r['codes'])))
+        assert types == [0, 0, 1, 1, 1, 1, 2, 2], N
+    with pytest.raises(ValueError):
+        vsearch.search(10, 6, time_limit=1, composition=True)
