@@ -1,0 +1,87 @@
+N=8 D=12 codes(c0=c1=+1)=64 distinct_vectors M=36 seed=0x5eedc0de12345 threads=8
+pairs=666 4-multisets=82251 R=2^6 subbuckets=2^1 tasks=33
+4-multisets generated=82251 (expected 82251) OK
+key matches=3128 false positives=0 exact split matches=3128 canonical=86 unique solutions=86 (canonical==unique OK)
+RESULT N=8 count=86 search_time=0.00 s total_time=0.00 s
+all 4+4 splits found: 2950, expected 2950 OK
+wrote 86 solutions to solutions_N8.txt
+
+N=9 D=16 codes(c0=c1=+1)=128 distinct_vectors M=72 seed=0x5eedc0de12345 threads=8
+pairs=2628 4-multisets=1215450 R=2^6 subbuckets=2^5 tasks=33
+4-multisets generated=1215450 (expected 1215450) OK
+key matches=2911 false positives=0 exact split matches=2911 canonical=78 unique solutions=78 (canonical==unique OK)
+RESULT N=9 count=78 search_time=0.00 s total_time=0.00 s
+all 4+4 splits found: 2730, expected 2730 OK
+wrote 78 solutions to solutions_N9.txt
+
+N=10 D=20 codes(c0=c1=+1)=256 distinct_vectors M=136 seed=0x5eedc0de12345 threads=8
+pairs=9316 4-multisets=14891626 R=2^6 subbuckets=2^8 tasks=33
+4-multisets generated=14891626 (expected 14891626) OK
+key matches=5510 false positives=0 exact split matches=5510 canonical=150 unique solutions=150 (canonical==unique OK)
+RESULT N=10 count=150 search_time=0.02 s total_time=0.03 s
+all 4+4 splits found: 5170, expected 5170 OK
+wrote 150 solutions to solutions_N10.txt
+
+N=11 D=25 codes(c0=c1=+1)=512 distinct_vectors M=272 seed=0x5eedc0de12345 threads=8
+pairs=37128 4-multisets=233132900 R=2^7 subbuckets=2^11 tasks=65
+4-multisets generated=233132900 (expected 233132900) OK
+key matches=4272 false positives=0 exact split matches=4272 canonical=118 unique solutions=118 (canonical==unique OK)
+RESULT N=11 count=118 search_time=0.47 s total_time=0.47 s
+all 4+4 splits found: 4130, expected 4130 OK
+wrote 118 solutions to solutions_N11.txt
+
+N=12 D=30 codes(c0=c1=+1)=1024 distinct_vectors M=528 seed=0x5eedc0de12345 threads=8
+pairs=139656 4-multisets=3275282340 R=2^11 subbuckets=2^11 tasks=1025
+4-multisets generated=3275282340 (expected 3275282340) OK
+key matches=631 false positives=0 exact split matches=631 canonical=18 unique solutions=18 (canonical==unique OK)
+RESULT N=12 count=18 search_time=6.28 s total_time=6.29 s
+all 4+4 splits found: 630, expected 630 OK
+wrote 18 solutions to solutions_N12.txt
+
+N=13 D=36 codes(c0=c1=+1)=2048 distinct_vectors M=1056 seed=0x5eedc0de12345 threads=8
+pairs=558096 4-multisets=52108586376 R=2^15 subbuckets=2^11 tasks=16385
+  [N=13] 820/16385 tasks, 5.2 s
+  [N=13] 1640/16385 tasks, 10.0 s
+  [N=13] 2460/16385 tasks, 14.4 s
+  [N=13] 3280/16385 tasks, 19.2 s
+  [N=13] 4100/16385 tasks, 23.8 s
+  [N=13] 4920/16385 tasks, 28.7 s
+  [N=13] 5740/16385 tasks, 34.1 s
+  [N=13] 6560/16385 tasks, 39.5 s
+  [N=13] 7380/16385 tasks, 44.4 s
+  [N=13] 8200/16385 tasks, 49.9 s
+  [N=13] 9020/16385 tasks, 54.7 s
+  [N=13] 9840/16385 tasks, 59.4 s
+  [N=13] 10660/16385 tasks, 64.1 s
+  [N=13] 11480/16385 tasks, 68.8 s
+  [N=13] 12300/16385 tasks, 73.3 s
+  [N=13] 13120/16385 tasks, 78.1 s
+  [N=13] 13940/16385 tasks, 82.9 s
+  [N=13] 14760/16385 tasks, 87.6 s
+  [N=13] 15580/16385 tasks, 92.4 s
+4-multisets generated=52108586376 (expected 52108586376) OK
+key matches=140 false positives=140 exact split matches=0 canonical=0 unique solutions=0 (canonical==unique OK)
+RESULT N=13 count=0 search_time=97.30 s total_time=97.33 s
+all 4+4 splits found: 0, expected 0 OK
+wrote 0 solutions to solutions_N13.txt
+       97.34 real       415.40 user         3.10 sys
+           840826880  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+              163393  page reclaims
+                   1  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   3  voluntary context switches
+              458443  involuntary context switches
+       3067185831066  instructions retired
+       1343433200409  cycles elapsed
+           841270304  peak memory footprint
+
+N=11 D=25 codes(c0=c1=+1)=512 distinct_vectors M=272 seed=0x5eedc0de12345 threads=8
+BRUTE N=11 count=118 (raw 118, leaves 18605979) time=581.12 s

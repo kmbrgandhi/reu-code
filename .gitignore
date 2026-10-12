@@ -1,0 +1,11 @@
+.venv/
+.venv
+__pycache__/
+*.pyc
+*.nbi
+*.nbc
+.pytest_cache/
+.venv.nosync/
+*.nosync
+cleanroom/t2search
+cleanroom/t2search.new

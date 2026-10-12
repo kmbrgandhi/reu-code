@@ -1,0 +1,31 @@
+{
+ "N": 14,
+ "codes_hex": [
+  "0C93",
+  "11D8",
+  "02C7",
+  "0134",
+  "021E",
+  "0BF9",
+  "15AC",
+  "0454"
+ ],
+ "power_profile_peak_sidelobe": 2.0,
+ "power_profile_sidelobe_energy": 28.0,
+ "summed_acf": [
+  112,
+  2,
+  0,
+  2,
+  0,
+  -2,
+  0,
+  -2,
+  0,
+  -2,
+  0,
+  2,
+  0,
+  2
+ ]
+}

@@ -1,0 +1,26 @@
+N=14 D=42 codes(c0=c1=+1)=4096 distinct_vectors M=2080 seed=0x5eedc0de12345 threads=8
+pairs=2164240 4-multisets=782157418120 R=2^19 subbuckets=2^11 tasks=262145
+  [N=14] 13108/262145 tasks, 60.1 s
+  [N=14] 26216/262145 tasks, 122.5 s
+  [N=14] 39324/262145 tasks, 185.6 s
+  [N=14] 52432/262145 tasks, 249.5 s
+  [N=14] 65540/262145 tasks, 314.0 s
+  [N=14] 78648/262145 tasks, 378.4 s
+  [N=14] 91756/262145 tasks, 442.8 s
+  [N=14] 104864/262145 tasks, 507.7 s
+  [N=14] 117972/262145 tasks, 573.0 s
+  [N=14] 131080/262145 tasks, 638.9 s
+  [N=14] 144188/262145 tasks, 703.7 s
+  [N=14] 157296/262145 tasks, 768.3 s
+  [N=14] 170404/262145 tasks, 833.5 s
+  [N=14] 183512/262145 tasks, 897.9 s
+  [N=14] 196620/262145 tasks, 962.5 s
+  [N=14] 209728/262145 tasks, 1035.8 s
+  [N=14] 222836/262145 tasks, 1123.0 s
+  [N=14] 235944/262145 tasks, 1210.4 s
+  [N=14] 249052/262145 tasks, 1285.8 s
+4-multisets generated=782157418120 (expected 782157418120) OK
+key matches=33238 false positives=33098 exact split matches=140 canonical=4 unique solutions=4 (canonical==unique OK)
+RESULT N=14 count=4 search_time=1361.46 s total_time=1361.54 s
+all 4+4 splits found: 140, expected 140 OK
+wrote 4 solutions to solutions_N14.txt

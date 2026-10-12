@@ -1,0 +1,105 @@
+L	PSL	status	example_hex	recomputed_PSL_of_printed_hex	source	note
+2	1	optimal (exhaustive)	0	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+3	1	optimal (exhaustive)	1	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+4	1	optimal (exhaustive)	2	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+5	1	optimal (exhaustive)	02	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+6	2	optimal (exhaustive)	02	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+7	1	optimal (exhaustive)	0D	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+8	2	optimal (exhaustive)	1A	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+9	2	optimal (exhaustive)	02C	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+10	2	optimal (exhaustive)	02C	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+11	1	optimal (exhaustive)	0ED	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+12	2	optimal (exhaustive)	0A6	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+13	1	optimal (exhaustive)	00CA	1	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+14	2	optimal (exhaustive)	00CA	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+15	2	optimal (exhaustive)	0329	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+16	2	optimal (exhaustive)	1DDA	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+17	2	optimal (exhaustive)	0192B	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+18	2	optimal (exhaustive)	0168C	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+19	2	optimal (exhaustive)	0EEDA	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+20	2	optimal (exhaustive)	04D4E	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+21	2	optimal (exhaustive)	005D39	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+22	3	optimal (exhaustive)	013538	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+23	3	optimal (exhaustive)	084BA3	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+24	3	optimal (exhaustive)	31FAB6	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+25	2	optimal (exhaustive)	031FAB6	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+26	3	optimal (exhaustive)	07015B2	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+27	3	optimal (exhaustive)	0F1112D	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+28	2	optimal (exhaustive)	4B7770E	2	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+29	3	optimal (exhaustive)	04B7770E	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+30	3	optimal (exhaustive)	03F6D5CE	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+31	3	optimal (exhaustive)	07E736D5	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+32	3	optimal (exhaustive)	01E5AACC	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+33	3	optimal (exhaustive)	003CB5599	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+34	3	optimal (exhaustive)	0CC01E5AA	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+35	3	optimal (exhaustive)	00796AB33	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+36	3	optimal (exhaustive)	3314A083E	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+37	3	optimal (exhaustive)	031D5AD93F	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+38	3	optimal (exhaustive)	003C34AA66	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+39	3	optimal (exhaustive)	13350BEF3C	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+40	3	optimal (exhaustive)	2223DC3A5A	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+41	3	optimal (exhaustive)	038EA520364	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+42	3	optimal (exhaustive)	04447B874B4	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+43	3	optimal (exhaustive)	005B2ACCE1C	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+44	3	optimal (exhaustive)	202E2714B96	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+45	3	optimal (exhaustive)	02AF0CC6DBF6	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+46	3	optimal (exhaustive)	03C0CF7B6556	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+47	3	optimal (exhaustive)	069A7E851988	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+48	3	optimal (exhaustive)	24AC8847B87C	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+49	4	optimal (exhaustive)	05E859E984451	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+50	4	optimal (exhaustive)	038FE23225492	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+51	3	optimal (exhaustive)	0E3F88C89524B	3	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+52	4	optimal (exhaustive)	05FB6D5D9D8E3	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+53	4	optimal (exhaustive)	00FF66EAE96B1C	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+54	4	optimal (exhaustive)	043B48A28793B3	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+55	4	optimal (exhaustive)	1658A2BC0A133B	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+56	4	optimal (exhaustive)	0C790164F6752A	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+57	4	optimal (exhaustive)	01B4DE3455B93BF	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+58	4	optimal (exhaustive)	008D89574E1349E	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+59	4	optimal (exhaustive)	1CAD63EFF126A2E	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+60	4	optimal (exhaustive)	119D01522ED3C34	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+61	4	optimal (exhaustive)	0024BA568EB83731	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+62	4	optimal (exhaustive)	000C67247C59568B	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+63	4	optimal (exhaustive)	1B3412F0501539CE	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+64	4	optimal (exhaustive)	26C9FD5F5A1D798C	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+65	4	optimal (exhaustive)	04015762C784EC369	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+66	4	optimal (exhaustive)	03FEF2CCB0B8CAC54	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+67	4	optimal (exhaustive)	073C2FADC44255264	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+68	4	optimal (exhaustive)	562B8CA48E0C9027E	4	Leukhin & Potekhin 2012, arXiv:1212.4930, Table 2 (pp. 7-9)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+69	4	optimal (exhaustive)	0292582AC6A767CC03	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+70	4	optimal (exhaustive)	01C2FFD4AF33356596	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+71	4	optimal (exhaustive)	12493BE76A5EE2A3F1	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+72	4	optimal (exhaustive)	27C8D6E165A71577FE	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+73	4	optimal (exhaustive)	012DE781C9167577AB7	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+74	4	optimal (exhaustive)	00ABFA66C560E3094C2	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	value also matches Leukhin & Potekhin 2013 (EuRAD), Table II, p. 497
+75	4	optimal (exhaustive)	0E0038AEB50B59C99B6	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+76	4	optimal (exhaustive)	2CD864E4AA90B8073DE	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+77	4	optimal (exhaustive)	066B7BDB752AA6F80E3C	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+78	4	optimal (exhaustive)	0C4852361E77C0574BAC	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+79	4	optimal (exhaustive)	0028AE35C3A59AC4ED89	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+80	4	optimal (exhaustive)	01A4F07798EA85AE6C48	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+81	4	optimal (exhaustive)	076375955A2F0C69004F9	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+82	4	optimal (exhaustive)	3CB25D380CE3B7765695F	4	Leukhin & Potekhin 2015, J. Phys. Conf. Ser. 613:012006, Table 1 (pp. 4-5)	
+83	5	optimal per Dimitrov et al. 2021, arXiv:2104.10477, p. 1 (search: Leukhin et al. 2017, abstract only)	711763AE7DBB8482D3A5A	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+84	5	optimal per Dimitrov et al. 2021, arXiv:2104.10477, p. 1 (search: Leukhin et al. 2017, abstract only)	CE79CCCDB6003C1E95AAA	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+85	5	best known (not proven optimal)	19900199463E51E8B4B574	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+86	5	best known (not proven optimal)	3603FB659181A2A52A38C7	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+87	5	best known (not proven optimal)	7F7184F04F4E5E4D9B56AA	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+88	5	best known (not proven optimal)	D54A9326C2C686F86F3880	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+89	5	best known (not proven optimal)	180E09434E1BBC44ACDAC8A	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+90	5	best known (not proven optimal)	3326D87C3A91DA8AFA84211	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+91	5	best known (not proven optimal)	77F80E632661C3459492A55	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+92	5	best known (not proven optimal)	CC6181859D9244A5EAA87F0	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+93	5	best known (not proven optimal)	187B2ECB802FB4F56BCCECE5	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+94	5	best known (not proven optimal)	319D9676CAFEADD68825F878	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+95	5	best known (not proven optimal)	69566B2ACCC8BC3CE0DE0005	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+96	5	best known (not proven optimal)	CF963FD09B1381657A8A098E	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+97	5	best known (not proven optimal)	1A843DC410898B2D3AE8FC362	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+98	5	best known (not proven optimal)	30E05C18A1525596DCCE600DF	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+99	5	best known (not proven optimal)	72E6DB6A75E6A9E81F0846777	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+100	5	best known (not proven optimal)	DF490FFB1F8390A54E3CD9AAE	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+101	5	best known (not proven optimal)	1A5048216CCF18F83E910DD4C5	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+102	5	best known (not proven optimal)	2945A4F11CE44FF664850D182A	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+103	5	best known (not proven optimal)	77FAAB2C6E065AC4BE18F274CB	10	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	printed code gives PSL 10 (typo in the source); PSL 5 is still the reported best
+104	5	best known (not proven optimal)	E568ED4982F9660EBA2F611184	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	
+105	5	best known (not proven optimal)	1C6387FF5DA4FA325C895958DC5	5	Nunn & Coxson 2008, IEEE TAES 44(1):392-395, Table 2 (preprint p. 3)	

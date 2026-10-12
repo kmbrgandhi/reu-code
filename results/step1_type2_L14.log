@@ -1,0 +1,16 @@
+bin_type2 L=14 K=8 m=2 N=1 | saw: peak 2 [verified: 2] | 3600.0s, 55,535,675,235 move evals (15,426,530/s), 83069 restarts, 8 worker(s)
+    code: {"signs": ["++-++-++--++-+", "++++--++-++++-", "++-+-++-+-+-++", "+++++++-+---+-", "++++-+--++++--", "+++--+--+-+-++", "++++--+---+---", "++-+-+++---++-"], "hex": ["0932", "0321", "0A54", "005D", "02C3", "06D4", "0377", "0A39"]}
+bin_type2 L=14 K=8 m=2 N=1 | saw: peak 0 (target reached) [verified: 0] | 2254.3s, 24,523,449,428 move evals (10,878,562/s), 36954 restarts, 8 worker(s)
+    code: {"signs": ["++---+-+++++++", "+++++--++-+++-", "++--++++--+--+", "+++++-----+-++", "++--+------+--", "+++----+++-+-+", "+++--++-+++---", "++-+-+++-+--+-"], "hex": ["0E80", "0191", "0C36", "01F4", "0DFB", "078A", "0647", "0A2D"]}
+usage: python -m fastcodes run [-h] --length LENGTH [--codes CODES]
+                               [--phases PHASES] [--doppler DOPPLER]
+                               [--metric {psl,isl,pnorm}] [--p P]
+                               [--algo {anneal,anneal_phases,deluge,evolution,first,genetic,memetic,pso,random,saw,sdls,stochastic,tabu,threshold,anneal_local,anneal_tabu,evolution_naive,genetic_part_random,genetic_random,genetic_tournament,memetic_sdls,memetic_simple}]
+                               [--time TIME] [--workers WORKERS]
+                               [--target TARGET] [--beat-record] [--seed SEED]
+                               [--param PARAM] [--out OUT]
+                               {psl,set,type2}
+python -m fastcodes run: error: argument --time: expected one argument
+bash: line 4: 3600: command not found
+bin_type2 L=14 K=8 m=2 N=1 | tabu: peak 2 [verified: 2] | 3600.0s, 49,826,386,464 move evals (13,840,578/s), 4633406 restarts, 8 worker(s)
+    code: {"signs": ["++---+---+-+--", "+++--+-+++++++", "++++--+--++-+-", "+++++----+-++-", "++++-+---+-++-", "+++--++-++-++-", "+++++++--+----", "++--+++-++-+++"], "hex": ["0EEB", "0680", "0365", "01E9", "02E9", "0649", "006F", "0C48"]}
