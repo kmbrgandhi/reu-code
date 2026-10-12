@@ -1,0 +1,77 @@
+{
+ "8": {
+  "count_doubly_complementary": 68,
+  "example_hex": [
+   "33",
+   "12",
+   "09",
+   "0E",
+   "7C",
+   "41",
+   "51",
+   "52"
+  ],
+  "type2_peak": 0.0,
+  "complementary_peak": 0.0
+ },
+ "9": {
+  "count_doubly_complementary": 17,
+  "example_hex": [
+   "04C",
+   "093",
+   "03C",
+   "021",
+   "0EB",
+   "056",
+   "02B",
+   "0FE"
+  ],
+  "type2_peak": 0.0,
+  "complementary_peak": 0.0
+ },
+ "10": {
+  "count_doubly_complementary": 24,
+  "example_hex": [
+   "099",
+   "09E",
+   "10E",
+   "171",
+   "1F9",
+   "114",
+   "16B",
+   "1FE"
+  ],
+  "type2_peak": 0.0,
+  "complementary_peak": 0.0
+ },
+ "11": {
+  "count_doubly_complementary": 7,
+  "example_hex": [
+   "19C",
+   "059",
+   "0F9",
+   "0EB",
+   "291",
+   "292",
+   "022",
+   "3F4"
+  ],
+  "type2_peak": 0.0,
+  "complementary_peak": 0.0
+ },
+ "12": {
+  "count_doubly_complementary": 1,
+  "example_hex": [
+   "313",
+   "61C",
+   "229",
+   "1D2",
+   "429",
+   "02C",
+   "01B",
+   "574"
+  ],
+  "type2_peak": 0.0,
+  "complementary_peak": 0.0
+ }
+}

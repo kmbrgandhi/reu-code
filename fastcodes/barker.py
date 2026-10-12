@@ -130,16 +130,33 @@ def level_descent(phi, margin=1e-7, shrink=0.995, rounds=80, maxiter=3000):
     return phi, pk
 
 
+def chirp_seed(N, rng, sigmas=(0.05, 0.15, 0.3)):
+    """Quadratic-phase (P3/P4/Chu/Golomb-family) code plus random perturbation.
+
+    These codes have low ISL, and in short tests (N = 30-50) they were much
+    better starting points than random phases: a Barker code at N = 30 in 18 s,
+    and peaks near 1.07 at N = 40 and 50 within 60 s. The P3, P4, Chu and
+    Golomb variants differ only by a linear phase ramp, which leaves every
+    |C(k)| unchanged, so one family is enough."""
+    n = np.arange(N)
+    phi = np.pi * n * (n - 1) / N + rng.normal(0.0, rng.choice(sigmas), N)
+    phi = phi - phi[0] - (phi[1] - phi[0]) * n      # fix constant phase and ramp
+    return np.mod(phi, 2 * np.pi)
+
+
 def attempt(N, rng, deadline, margin=1e-7, k=3, sigma=0.4, stall_limit=60, descent_every=15,
-            maxiter=3000):
+            maxiter=3000, seed='chirp'):
     """One run: random phases -> local ISL minimum -> basin hopping on the ISL
     (perturb k phases by N(0, sigma), re-minimize, keep if the ISL drops), with
     a level descent toward |C| <= 1 every `descent_every` hops and at the end.
     Nunn & Coxson (2009) likewise started their Barker searches from low-ISL
     codes. Returns (best interior peak, its phases, number of level descents)."""
     target = 1.0 - margin
-    phi = rng.uniform(0, 2 * np.pi, N)
-    phi[:2] = 0.0
+    if seed == 'chirp':
+        phi = chirp_seed(N, rng)
+    else:
+        phi = rng.uniform(0, 2 * np.pi, N)
+        phi[:2] = 0.0
     phi = _minimize(phi, 0, 2.0, 0.0, maxiter)
     cur = isl(phi)
     best_pk, best_phi, descents = math.inf, phi, 0
