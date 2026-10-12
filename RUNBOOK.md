@@ -229,6 +229,53 @@ run:
 bash runs/progress.sh 15
 ```
 
+## Step 14: Faster complete search at length 15 (estimate: under an hour)
+
+This step uses a new program, `exhaustive/t2abc.c`. It is built on a fact from
+Sulzer (1993): every set of 8 codes has exactly 2 codes of type A, 4 of type B
+and 2 of type C, where the type depends only on the first three and last three
+elements. Matching (2 A + 2 C) against (4 B) needs about 24 times less work
+than matching any 4 codes against any 4 codes. The program finds the same sets
+as the clean-room program at lengths 8–14. At length 14 it used 458 s of CPU
+time on 2 threads, against about 10,900 thread-seconds for the clean-room
+program (`results/t2abc/runlog14.txt`, `results/cleanroom/runlog14.txt`).
+
+The run is split into 20 chunks. If it is interrupted, start it again with
+the same command: finished chunks are skipped. Memory use is about 0.4 GB
+(estimate from a 2-thread sample). The time is also an estimate from short
+samples; a full 8-thread run hasn't been timed yet.
+
+The paused step-13 run blocks new searches. Before you start this step, do one
+of the following:
+
+- To keep step 13 as a second, independent check, run `bash runs/resume.sh`
+  and wait for it to finish first.
+- To drop step 13, stop it with `kill $(bash runs/searchpids.sh)`.
+
+Then run:
+
+```sh
+bash runs/start.sh step14
+```
+
+To check progress, run `bash runs/progress.sh 15`. The script reports both
+programs.
+
+## Step 15: Complete search at length 16 (estimate: 7–12 hours, overnight)
+
+This is the same program at length 16, which needs about 16 times the work of
+length 15. The estimate comes from a short 2-thread sample (about 33 CPU cycles
+per combination, 279,187 tasks). It uses 128 MB tables per thread, about
+1.3 GB of memory in total (estimate). The run is split into 40 chunks, so you
+can stop it in the morning (`kill $(bash runs/searchpids.sh)`) and start it
+again the next night with the same command. Only the unfinished chunk is lost.
+
+```sh
+bash runs/start.sh step15
+```
+
+To check progress, run `bash runs/progress.sh 16`.
+
 ## If you find something
 
 - **Type-2:** `report` prints `type-2 alternating set found:` with the codes

@@ -1,0 +1,25 @@
+N=14 D=42 distinct_vectors=2080 A=528 B=1024 C=528 left=1.95e+10 right=4.61e+10 prime=18617 tasks=0..18617 table=8.0MB/thread scan_overhead=0.19 threads=2 seed=0x7432abc setup=0.0s
+  [N=14] 4164/18617 tasks (22.4%), 60 s elapsed, about 208 s left, 1 solutions, 28 candidates
+  [N=14] 7992/18617 tasks (42.9%), 120 s elapsed, about 160 s left, 1 solutions, 57 candidates
+  [N=14] 11865/18617 tasks (63.7%), 180 s elapsed, about 102 s left, 3 solutions, 82 candidates
+  [N=14] 15775/18617 tasks (84.7%), 240 s elapsed, about 43 s left, 4 solutions, 102 candidates
+  [N=14] 18617/18617 tasks (100.0%), 287 s elapsed, about 0 s left, 4 solutions, 117 candidates
+      287.06 real       457.78 user         5.27 sys
+            39714816  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                5385  page reclaims
+                   8  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   5  voluntary context switches
+              818774  involuntary context switches
+       3138136134562  instructions retired
+       1375939653357  cycles elapsed
+            39829888  peak memory footprint
+RESULT N=14 count=4 tasks=0..18617 of 18617 search_time=287.0 s candidates=117 work=65585699136

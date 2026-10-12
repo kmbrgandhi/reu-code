@@ -1,0 +1,3 @@
+N=12 D=30 distinct_vectors=528 A=136 B=256 C=136 left=8.68e+07 right=1.83e+08 prime=23 tasks=0..23 table=28.8MB/thread scan_overhead=0.00 threads=2 seed=0x7432abc setup=0.0s
+  [N=12] 23/23 tasks (100.0%), 1 s elapsed, about 0 s left, 18 solutions, 18 candidates
+RESULT N=12 count=18 tasks=0..23 of 23 search_time=1.4 s candidates=18 work=269969232

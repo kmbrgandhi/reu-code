@@ -1,0 +1,14 @@
+N=8 type-1 set: 00 09 0d 13 16 1b 21 2c  complementary: False
+N=8 type-1 set: 01 04 0c 0d 17 1e 23 36  complementary: True
+N=8 type-1 set: 01 06 08 0b 12 1b 26 3c  complementary: False
+N=8 type-1 set: 02 03 0b 0e 11 18 2c 36  complementary: True
+N=8 type-1 set: 02 06 0f 14 19 1c 21 23  complementary: False
+N=8 type-1 set: 03 05 08 13 19 1e 24 29  complementary: True
+N=8 type-1 set: 04 07 09 0e 12 14 29 33  complementary: True
+N=8 type-1 set: 05 07 0c 11 16 1c 26 2b  complementary: True
+N=8: sets=86  type-1 for some code choice: 8  doubly complementary: 68  type-1 and doubly complementary: 5
+N=9: sets=78  type-1 for some code choice: 0
+N=10: sets=150  type-1 for some code choice: 0
+N=11: sets=118  type-1 for some code choice: 0
+N=12: sets=18  type-1 for some code choice: 0
+N=14: sets=4  type-1 for some code choice: 0

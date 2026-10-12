@@ -55,12 +55,25 @@ up to length 8.
   confirmation of every hit (`fastcodes/exhaust.py`).
 - Independent clean-room C implementation (`cleanroom/t2search.c`), written
   from the definition alone, with an internal brute-force cross-check.
+- Composition split (`exhaustive/t2abc.c`). The coordinates (1, N−3) and
+  (2, N−3) depend only on the products c_j c_{j+N−3}, j = 0, 1, 2 (the
+  argument in Sulzer 1993 about the last positions). Every code has one of
+  three types, A = (2, 1), B = (0, −1) and C = (−2, 1), and a zero sum over
+  8 codes forces exactly 2 A, 4 B and 2 C codes. The search matches
+  (A-pair + C-pair) against B-multisets of size 4, which needs about 24 times
+  less work than matching any 4 codes against any 4 codes (computed from the
+  type counts, for example A = 528, B = 1024, C = 528 at N = 14).
+  - Finer splits by more boundary coordinates don't reduce the work further
+    (checked by counting at N = 12 and 13).
+  - The program gives the same sets as `cleanroom/t2search` for N = 8–14.
 - Validation:
   - Counts for N = 8–10 equal Sulzer's Table 3.
   - Sulzer's Table 4 sets for N = 8–12 are found (tests in `fastcodes/tests`).
   - The Markkanen et al. (2008) length-14 set is found.
 - Computational cost: the work grows by about 16× per length. Length 14 took
-  1,361 s with the C program (`results/cleanroom/runlog14.txt`).
+  1,361 s with the clean-room program on 8 threads
+  (`results/cleanroom/runlog14.txt`). [Add the `t2abc` timings for N = 14 and
+  15 from a full 8-thread run.]
 
 ## 4. Results
 
@@ -93,7 +106,31 @@ up to length 8.
     against 4 and 64 for the published set
     (`results/new_L14_best_power_profile.json`).
   - "Doubly complementary" sets: 68, 17, 24, 7 and 1 for N = 8–12
-    (`results/type2_and_complementary.json`).
+    (`results/type2_and_complementary.json`). A second script,
+    `analysis/type1_overlap.py`, reproduces 68 for N = 8
+    (`results/type1_overlap.txt`).
+  - Overlap with type-1 codes at N = 8 (`results/type1_overlap.txt`): 8 of
+    the 86 sets also meet Lehtinen's weak (type-1) condition for some choice
+    of codes, and 5 of those 8 are doubly complementary. For N = 9–12 and 14, no 8-code type-2 set is
+    type-1. Lehtinen's published 8-bit codes might include some of these
+    sets; check this against Lehtinen (1986) and Lehtinen & Häggström (1987)
+    before claiming N = 8.
+  - Physics caveat. A complementary set cancels sidelobes only if the target
+    stays coherent over the whole code cycle: Rastogi (1984), MAP Handbook 13,
+    pp. 480–481, says that complementary code pairs "are not usable in
+    mesospheric (incoherent-scatter) experiments with UHF radars"; Vierinen
+    (2012, thesis), pp. 115–116, makes the same stationarity point. So the
+    sidelobe-free power profile applies to coherent targets, not to
+    incoherent scatter.
+  - Standard practice doesn't get the zero lag from alternating-code
+    decoding: Sulzer (1993), p. 996, "The zero lag is lost"; Lehtinen,
+    Virtanen & Vierinen (2008), *Ann. Geophys.* 26:2291, Sec. 4.2. The closest
+    practice is the "pseudo zero lag" from decoded power profiles in
+    Häggström et al. (arXiv:physics/0003019v2, Sec. 2, pp. 3–4), with a
+    16-bit strong code; they don't claim complementarity.
+  - Turunen et al. (2002), *Ann. Geophys.* 20:1469, p. 1471, describe the
+    gap: "more work is needed for finding a practical deterministic solution
+    that contains all the wanted properties simultaneously."
 - [Optional: the strong-condition extension, and receiver-filter effects.]
 
 ## 6. Polyphase extension
@@ -103,6 +140,11 @@ up to length 8.
     N = 9).
   - 3-phase sets of 6 codes exist at N = 5 and 7.
 - Practical point: a 4-phase cycle of 4 codes, against 8 binary codes at N = 8.
+- Prior work: no report of type-2 sets with fewer codes than the length was
+  found. Markkanen et al. (2008), p. 2237, polyphase codes are type-1, with as
+  many codes as the length. Vierinen et al. (2008), *Ann. Geophys.* 26:2923,
+  Sec. 6, optimize short polyphase code groups numerically but list no codes
+  and claim no exact type-2 property.
 
 ## 7. Discussion
 
@@ -119,7 +161,10 @@ GitHub: kmbrgandhi/reu-code, branch `fast-search`.
 - [ ] Length-15 run (`bash runs/resume.sh`; progress with `bash runs/progress.sh 15`).
 - [ ] Close the literature gap: about 19 papers citing Sulzer that only Google
   Scholar lists, and NASA ADS. Both were blocked to automated access.
-- [ ] Novelty check of the doubly complementary and polyphase claims (in progress).
+- [x] Novelty check of the doubly complementary and polyphase claims: no prior
+  report found (agent notes, 2026-10-12). Still unread: Sulzer (1989),
+  *Adv. Space Res.* 9(5):153 (cites Golay 1961 on complementary codes), and
+  the full text of Lehtinen & Häggström (1987).
 - [ ] Confirm with radar colleagues how power profiles are measured with
   alternating codes, before making the zero-lag claim.
 - [ ] Figures: counts against N, and lag-profile and power-profile examples.

@@ -115,6 +115,7 @@ S[l, k] = sum_j s[j] conj(s[j+l]) conj(s[j+k]) s[j+l+k] add to zero over the set
 |---|---|
 | Complete search, 8 binary codes (lengths up to 14 on a laptop) | `.venv/bin/python -m fastcodes exhaust-type2 --length 13` |
 | Faster independent complete search (C) | `cd cleanroom && clang -O3 -mcpu=native -pthread -o t2search t2search.c && ./t2search 14 -o ../results/cleanroom/solutions_N14.txt` |
+| Fastest complete search, by type composition (C) | `bash runs/t2abc_chunked.sh 15` (lengths 15 and 16: runbook steps 14 and 15) |
 | Heuristic search, any number of codes | `.venv/bin/python -m fastcodes vsearch --length 15 --codes 12 --time 1800` |
 | Exact search for small polyphase sets (2-6 codes) | `.venv/bin/python -m fastcodes.polytype2` |
 | Progress of a long C run | `bash runs/progress.sh 15` |
@@ -144,6 +145,16 @@ combinations of negation, alternation, and the chirp preserve the condition.
 Both programs (`fastcodes.exhaust` and `cleanroom/t2search.c`, written
 independently) produce identical solution sets for every length from 8 to 14.
 Sources: `results/exhaust.jsonl` and `results/cleanroom/solutions_N*.txt`.
+A third program, `exhaustive/t2abc.c`, produces identical solution files for
+lengths 8–14 (`results/t2abc/`).
+
+How `t2abc` is faster: the coordinates S[1, N-3] and S[2, N-3] depend only on
+the products s[j] s[j+N-3], j = 0, 1, 2. Every binary code has one of three
+types, A = (2, 1), B = (0, -1) or C = (-2, 1), and a zero sum over 8 codes
+forces exactly 2 codes of type A, 4 of type B and 2 of type C. The program
+matches (A-pair + C-pair) against (B-pair + B-pair), which is about 24 times
+less work than matching any 4 codes against any 4 codes. At length 14 it used
+458 s of CPU time against about 10,900 thread-seconds for `t2search`.
 
 The two length-14 classes are inequivalent under every symmetry above: their
 codes' vector norms differ (published: 129, 137, 149, 161, 165, 165, 181, 201;

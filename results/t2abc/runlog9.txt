@@ -1,0 +1,3 @@
+N=9 D=16 distinct_vectors=72 A=20 B=32 C=20 left=4.41e+04 right=5.24e+04 prime=7 tasks=0..7 table=0.0MB/thread scan_overhead=0.05 threads=2 seed=0x7432abc setup=0.0s
+  [N=9] 7/7 tasks (100.0%), 0 s elapsed, about 0 s left, 78 solutions, 78 candidates
+RESULT N=9 count=78 tasks=0..7 of 7 search_time=0.0 s candidates=78 work=96460

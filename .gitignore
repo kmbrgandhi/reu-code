@@ -9,3 +9,4 @@ __pycache__/
 *.nosync
 cleanroom/t2search
 cleanroom/t2search.new
+exhaustive/t2abc

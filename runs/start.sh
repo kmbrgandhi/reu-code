@@ -16,12 +16,12 @@ if [ -z "$step" ] || [ -z "$script" ]; then
 fi
 # A search that was just stopped (pkill) can take a few seconds to exit.
 for i in 1 2 3 4 5 6 7 8 9 10; do
-    pgrep -f "m fastcodes (run|barker|exhaust-type2|vsearch)|t2search [0-9]" >/dev/null || break
+    [ -z "$(bash runs/searchpids.sh)" ] && break
     sleep 1
 done
-if [ -z "$FORCE" ] && pgrep -f "m fastcodes (run|barker|exhaust-type2|vsearch)|t2search [0-9]" >/dev/null; then
-    echo "A search is already running. Wait for it to finish, or stop it with:"
-    echo '  pkill -f "m fastcodes"'
+if [ -z "$FORCE" ] && [ -n "$(bash runs/searchpids.sh)" ]; then
+    echo "A search is already running (or paused). Wait for it to finish, or stop it with:"
+    echo '  kill $(bash runs/searchpids.sh)'
     exit 1
 fi
 mkdir -p results
