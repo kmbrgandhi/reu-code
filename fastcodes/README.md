@@ -104,6 +104,64 @@ within seconds, but did not reach length 35 within a minute. Run
 `runs/step8_barker_calibration.sh` to measure its reach on all cores before you
 aim at the open lengths 71, 73, 74 and 75.
 
+## Search for type-2 alternating codes
+
+A set of K codes is a type-2 alternating set (Sulzer 1993) when, for every lag
+l, the lag-product codes t[j] = s[j] conj(s[j+l]) form a complementary set.
+Equivalently, the codes' fourth-order sums
+S[l, k] = sum_j s[j] conj(s[j+l]) conj(s[j+k]) s[j+l+k] add to zero over the set.
+
+| Goal | Command |
+|---|---|
+| Complete search, 8 binary codes (lengths up to 14 on a laptop) | `.venv/bin/python -m fastcodes exhaust-type2 --length 13` |
+| Faster independent complete search (C) | `cd cleanroom && clang -O3 -mcpu=native -pthread -o t2search t2search.c && ./t2search 14 -o ../results/cleanroom/solutions_N14.txt` |
+| Heuristic search, any number of codes | `.venv/bin/python -m fastcodes vsearch --length 15 --codes 12 --time 1800` |
+| Exact search for small polyphase sets (2-6 codes) | `.venv/bin/python -m fastcodes.polytype2` |
+| Progress of a long C run | `bash runs/progress.sh 15` |
+| Pause or resume every running search | `bash runs/pause.sh` and `bash runs/resume.sh` |
+
+How solutions are counted: two codes are interchangeable when they have the
+same fourth-order vector S[., .]. Negating a code, alternating its signs, or
+reversing it leaves the vector unchanged. Solutions are counted as multisets
+of 8 distinct vectors, as in Sulzer (1993). Multiplying every code by the
+"chirp" (-1)^(j(j-1)/2) flips the sign of S[l, k] when l*k is odd, so it maps
+type-2 sets to type-2 sets; "classes" below count solutions up to that global
+symmetry. All 2^N global sign patterns were tested at N = 14: only the 8
+combinations of negation, alternation, and the chirp preserve the condition.
+
+### Results: 8 binary codes
+
+| Length | Sets | Classes (up to the chirp) | Published |
+|---|---|---|---|
+| 8 | 86 | 44 | 86 (Sulzer 1993, Table 3) |
+| 9 | 78 | 40 | 78 (Sulzer 1993) |
+| 10 | 150 | 75 | 150 (Sulzer 1993) |
+| 11 | 118 | 59 | 85 (Sulzer 1993; likely an incomplete search) |
+| 12 | 18 | 9 | 1 (Sulzer 1993; partial search) |
+| 13 | 0 | 0 | none known |
+| 14 | 4 | 2 | 1 (Markkanen et al. 2008); the second class is new |
+
+Both programs (`fastcodes.exhaust` and `cleanroom/t2search.c`, written
+independently) produce identical solution sets for every length from 8 to 14.
+Sources: `results/exhaust.jsonl` and `results/cleanroom/solutions_N*.txt`.
+
+The two length-14 classes are inequivalent under every symmetry above: their
+codes' vector norms differ (published: 129, 137, 149, 161, 165, 165, 181, 201;
+new: 109, 125, 145, 169, 185, 193, 197, 261).
+
+### Related results
+
+- Type-2 sets that are also complementary sets, after choosing equivalent
+  codes: 68, 17, 24, 7, and 1 sets for lengths 8-12, and none at 14
+  (`results/type2_and_complementary.json`). Such a set gives sidelobe-free lag
+  profiles and a sidelobe-free power profile from the same transmissions.
+- Every type-2 set of 8 codes at a given length decodes the lag profiles with
+  the same noise level, so sets differ only in secondary properties such as
+  the power profile (`results/new_L14_best_power_profile.json`).
+- Polyphase sets (`results/polytype2_small.txt`): 4-phase sets of 4 codes
+  exist up to length 8 (8 sets at length 8, none at 9). Binary sets of 4 codes
+  stop at length 7.
+
 ## Use the Python API
 
 ```python
