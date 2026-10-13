@@ -210,13 +210,24 @@ these lengths. Each length runs for up to 30 minutes.
 bash runs/start.sh step12
 ```
 
-## Step 13: Complete search at length 15, 8 codes (about 7 hours)
+## Step 13: Independent complete search at length 15 (estimate: about 11 hours)
 
 This uses the independent C program in `cleanroom/`, which is about 30 times
-faster than `exhaust-type2`. It agrees with `exhaust-type2` on every set at
-lengths 8–14. A result at length 15 is new either way: a type-2 set longer
+faster than `exhaust-type2`. It agrees with `exhaust-type2` and `t2abc` on
+every set at lengths 8–14, so it gives a second, independent check of the
+step-14 result. A result at length 15 is new either way: a type-2 set longer
 than the published record of 14, or a proof that 8 codes can't reach 15. It
 uses about 6 GB of memory.
+
+The run is split into 40 chunks. If it is interrupted, start it again with
+the same command: finished chunks are skipped. At the end,
+`cleanroom/merge_chunks.py` runs the program's consistency checks over all
+chunks together.
+
+The first attempt had no chunks. It was paused at 23.9% (125,332 of 524,289
+tasks) after 9,441 s of search time, and it was lost when the battery ran out
+on 2026-10-13 (`results/cleanroom/runlog15_interrupted.txt`). The estimate
+scales that rate to the whole run.
 
 ```sh
 bash runs/start.sh step13
@@ -244,15 +255,6 @@ The run is split into 20 chunks. If it is interrupted, start it again with
 the same command: finished chunks are skipped. Memory use is about 0.4 GB
 (estimate from a 2-thread sample). The time is also an estimate from short
 samples; a full 8-thread run hasn't been timed yet.
-
-The paused step-13 run blocks new searches. Before you start this step, do one
-of the following:
-
-- To keep step 13 as a second, independent check, run `bash runs/resume.sh`
-  and wait for it to finish first.
-- To drop step 13, stop it with `kill $(bash runs/searchpids.sh)`.
-
-Then run:
 
 ```sh
 bash runs/start.sh step14

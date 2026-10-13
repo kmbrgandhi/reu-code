@@ -27,6 +27,15 @@
  *
  * Build: clang -O3 -mcpu=native -pthread -o t2search t2search.c
  * Run:   ./t2search N [-t threads] [-b] [-B] [-s seed] [-L log2_list] [-o file]
+ *                     [-r first:last] [-n]
+ *
+ * Added 2026-10-13 for restartable runs (the search itself is unchanged):
+ *   -n prints the setup lines, including the number of tasks, and exits.
+ *   -r runs only tasks first..last-1 and prints a CHUNK line instead of
+ *      RESULT. A split of one solution can fall in a different chunk than
+ *      its canonical split, so the consistency checks move to
+ *      merge_chunks.py, which runs them over all chunks together. Every
+ *      chunk must use the same N, seed and -L.
  */
 #include <stdio.h>
 #include <stdlib.h>
@@ -191,6 +200,7 @@ typedef struct {
 
 static atomic_uint nextTask;
 static atomic_uint doneTasks;
+static uint32_t rFirst, rLast;           /* task range [rFirst, rLast) */
 
 static void gen_count(uint32_t t, int neg, uint32_t *cnt) {
     const int sh = logR; const uint64_t sm = SBN - 1; const uint32_t rm = R - 1;
@@ -303,10 +313,10 @@ static double tStart;
 
 static void *worker(void *arg) {
     Thr *T = arg;
-    uint32_t last = R / 2;
+    uint32_t total = rLast - rFirst;
     for (;;) {
         uint32_t t = atomic_fetch_add(&nextTask, 1);
-        if (t > last) break;
+        if (t >= rLast) break;
         uint32_t s = (R - t) & (R - 1);
         int self = (s == t);
         memset(T->cntA, 0, 4 * (size_t)SBN); memset(T->cntB, 0, 4 * (size_t)SBN);
@@ -327,9 +337,9 @@ static void *worker(void *arg) {
         /* progress: at least once a minute (edited for long runs; races only duplicate a line) */
         if (progress) {
             double tn = now();
-            if (tn - lastPrint >= 60.0 || dn == last + 1) {
+            if (tn - lastPrint >= 60.0 || dn == total) {
                 lastPrint = tn;
-                fprintf(stderr, "  [N=%d] %u/%u tasks, %.1f s\n", N, dn, last + 1, tn - tStart);
+                fprintf(stderr, "  [N=%d] %u/%u tasks, %.1f s\n", N, dn, total, tn - tStart);
             }
         }
     }
@@ -413,9 +423,10 @@ static uint64_t binom4(uint64_t n) { /* C(n,4) */
 }
 
 int main(int argc, char **argv) {
-    if (argc < 2) { fprintf(stderr, "usage: %s N [-t threads] [-b] [-B] [-s seed] [-L log2_list] [-o file] [-q]\n", argv[0]); return 1; }
+    if (argc < 2) { fprintf(stderr, "usage: %s N [-t threads] [-b] [-B] [-s seed] [-L log2_list] [-o file] [-q] [-r first:last] [-n]\n", argv[0]); return 1; }
     N = atoi(argv[1]);
     int brute = 0, bruteOnly = 0, Ltarget = 21; uint64_t seed = 0x5EEDC0DE12345ULL; const char *outFile = NULL;
+    int ranged = 0, setupOnly = 0; unsigned long long ra = 0, rb = 0;
     for (int i = 2; i < argc; i++) {
         if (!strcmp(argv[i], "-t") && i + 1 < argc) NT = atoi(argv[++i]);
         else if (!strcmp(argv[i], "-b")) brute = 1;
@@ -424,9 +435,15 @@ int main(int argc, char **argv) {
         else if (!strcmp(argv[i], "-L") && i + 1 < argc) Ltarget = atoi(argv[++i]);
         else if (!strcmp(argv[i], "-o") && i + 1 < argc) outFile = argv[++i];
         else if (!strcmp(argv[i], "-q")) progress = 0;
+        else if (!strcmp(argv[i], "-r") && i + 1 < argc) {
+            if (sscanf(argv[++i], "%llu:%llu", &ra, &rb) != 2) die("bad -r (use -r first:last)");
+            ranged = 1;
+        }
+        else if (!strcmp(argv[i], "-n")) setupOnly = 1;
         else { fprintf(stderr, "bad arg %s\n", argv[i]); return 1; }
     }
     if (N < 4 || N > 18) die("N out of range (4..18)");
+    if (ranged && brute) die("-r can't be combined with -b or -B");
     sm_state = seed;
     double t0 = now();
     setup_vectors();
@@ -443,10 +460,21 @@ int main(int argc, char **argv) {
         SB = 0;
         while (SB < 14 && (avg >> SB) > 1024) SB++;
         SBN = 1u << SB;
+        rFirst = 0; rLast = R / 2 + 1;
+        if (ranged) {
+            if (ra >= rb || rb > rLast) die("-r range must satisfy first < last <= tasks");
+            rFirst = (uint32_t)ra; rLast = (uint32_t)rb;
+        }
+        if (setupOnly) {
+            printf("pairs=%llu 4-multisets=%llu R=2^%d subbuckets=2^%d tasks=%u\n",
+                   (unsigned long long)M * (M + 1) / 2, (unsigned long long)T4, logR, SB, R / 2 + 1);
+            return 0;
+        }
         setup_pairs();
         printf("pairs=%llu 4-multisets=%llu R=2^%d subbuckets=2^%d tasks=%u\n",
                (unsigned long long)P, (unsigned long long)T4, logR, SB, R / 2 + 1);
         fflush(stdout);
+        atomic_store(&nextTask, rFirst);
         tStart = now(); lastPrint = tStart;
         Thr *th = calloc(NT, sizeof(Thr));
         pthread_t *pt = xmalloc(sizeof(pthread_t) * NT);
@@ -466,36 +494,45 @@ int main(int argc, char **argv) {
         size_t uniq = dedupe(mitmSols, mitmN);
         mitmN = uniq;
         double t1 = now();
-        printf("4-multisets generated=%llu (expected %llu) %s\n", (unsigned long long)quads,
-               (unsigned long long)T4, quads == T4 ? "OK" : "MISMATCH");
-        printf("key matches=%llu false positives=%llu exact split matches=%llu canonical=%llu unique solutions=%zu %s\n",
-               (unsigned long long)km, (unsigned long long)fp, (unsigned long long)ex, (unsigned long long)canon,
-               uniq, (uint64_t)uniq == canon ? "(canonical==unique OK)" : "(CANONICAL/UNIQUE MISMATCH)");
-        printf("RESULT N=%d count=%zu search_time=%.2f s total_time=%.2f s\n", N, uniq, t1 - tStart, t1 - t0);
-        fflush(stdout);
-        /* independent count of unordered 4+4 splits of every solution */
-        uint64_t tw2 = 0;
-        for (size_t q = 0; q < uniq; q++) {
-            const uint16_t *S = mitmSols + 8 * q;
-            uint16_t Ys[70][4]; int ny = 0;
-            for (int m = 0; m < 256; m++) {
-                if (__builtin_popcount(m) != 4) continue;
-                uint16_t y[4]; int o = 0;
-                for (int b = 0; b < 8; b++) if (m >> b & 1) y[o++] = S[b];
-                int dup = 0;
-                for (int z = 0; z < ny && !dup; z++) dup = !memcmp(Ys[z], y, sizeof y);
-                if (!dup) memcpy(Ys[ny++], y, sizeof y);
+        if (ranged) {
+            printf("key matches=%llu false positives=%llu exact split matches=%llu\n",
+                   (unsigned long long)km, (unsigned long long)fp, (unsigned long long)ex);
+            printf("CHUNK N=%d tasks=%u..%u of %u 4-multisets=%llu canonical=%llu twice_splits=%llu unique=%zu search_time=%.2f s\n",
+                   N, rFirst, rLast, R / 2 + 1, (unsigned long long)quads, (unsigned long long)canon,
+                   (unsigned long long)tw, uniq, t1 - tStart);
+            fflush(stdout);
+        } else {
+            printf("4-multisets generated=%llu (expected %llu) %s\n", (unsigned long long)quads,
+                   (unsigned long long)T4, quads == T4 ? "OK" : "MISMATCH");
+            printf("key matches=%llu false positives=%llu exact split matches=%llu canonical=%llu unique solutions=%zu %s\n",
+                   (unsigned long long)km, (unsigned long long)fp, (unsigned long long)ex, (unsigned long long)canon,
+                   uniq, (uint64_t)uniq == canon ? "(canonical==unique OK)" : "(CANONICAL/UNIQUE MISMATCH)");
+            printf("RESULT N=%d count=%zu search_time=%.2f s total_time=%.2f s\n", N, uniq, t1 - tStart, t1 - t0);
+            fflush(stdout);
+            /* independent count of unordered 4+4 splits of every solution */
+            uint64_t tw2 = 0;
+            for (size_t q = 0; q < uniq; q++) {
+                const uint16_t *S = mitmSols + 8 * q;
+                uint16_t Ys[70][4]; int ny = 0;
+                for (int m = 0; m < 256; m++) {
+                    if (__builtin_popcount(m) != 4) continue;
+                    uint16_t y[4]; int o = 0;
+                    for (int b = 0; b < 8; b++) if (m >> b & 1) y[o++] = S[b];
+                    int dup = 0;
+                    for (int z = 0; z < ny && !dup; z++) dup = !memcmp(Ys[z], y, sizeof y);
+                    if (!dup) memcpy(Ys[ny++], y, sizeof y);
+                }
+                for (int z = 0; z < ny; z++) {   /* Y == complement(Y) adds one more */
+                    uint16_t x[4]; int o = 0, used[8] = {0};
+                    for (int b = 0; b < 4; b++) for (int c = 0; c < 8; c++) if (!used[c] && S[c] == Ys[z][b]) { used[c] = 1; break; }
+                    for (int c = 0; c < 8; c++) if (!used[c]) x[o++] = S[c];
+                    tw2 += 1 + (memcmp(x, Ys[z], sizeof x) == 0);
+                }
             }
-            for (int z = 0; z < ny; z++) {   /* Y == complement(Y) adds one more */
-                uint16_t x[4]; int o = 0, used[8] = {0};
-                for (int b = 0; b < 4; b++) for (int c = 0; c < 8; c++) if (!used[c] && S[c] == Ys[z][b]) { used[c] = 1; break; }
-                for (int c = 0; c < 8; c++) if (!used[c]) x[o++] = S[c];
-                tw2 += 1 + (memcmp(x, Ys[z], sizeof x) == 0);
-            }
+            printf("all 4+4 splits found: %llu, expected %llu %s\n", (unsigned long long)tw / 2,
+                   (unsigned long long)tw2 / 2, tw == tw2 ? "OK" : "MISMATCH");
+            if (quads != T4 || (uint64_t)uniq != canon || tw != tw2) die("internal consistency check failed");
         }
-        printf("all 4+4 splits found: %llu, expected %llu %s\n", (unsigned long long)tw / 2,
-               (unsigned long long)tw2 / 2, tw == tw2 ? "OK" : "MISMATCH");
-        if (quads != T4 || (uint64_t)uniq != canon || tw != tw2) die("internal consistency check failed");
     }
 
     if (brute) {

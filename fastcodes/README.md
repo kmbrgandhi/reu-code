@@ -115,6 +115,7 @@ S[l, k] = sum_j s[j] conj(s[j+l]) conj(s[j+k]) s[j+l+k] add to zero over the set
 |---|---|
 | Complete search, 8 binary codes (lengths up to 14 on a laptop) | `.venv/bin/python -m fastcodes exhaust-type2 --length 13` |
 | Faster independent complete search (C) | `cd cleanroom && clang -O3 -mcpu=native -pthread -o t2search t2search.c && ./t2search 14 -o ../results/cleanroom/solutions_N14.txt` |
+| Independent complete search in restartable chunks (C) | `bash runs/t2search_chunked.sh 15` (runbook step 13) |
 | Fastest complete search, by type composition (C) | `bash runs/t2abc_chunked.sh 15` (lengths 15 and 16: runbook steps 14 and 15) |
 | Heuristic search, any number of codes | `.venv/bin/python -m fastcodes vsearch --length 15 --codes 12 --time 1800` |
 | Exact search for small polyphase sets (2-6 codes) | `.venv/bin/python -m fastcodes.polytype2` |
