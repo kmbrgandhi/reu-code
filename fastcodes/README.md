@@ -142,12 +142,14 @@ combinations of negation, alternation, and the chirp preserve the condition.
 | 12 | 18 | 9 | 1 (Sulzer 1993; partial search) |
 | 13 | 0 | 0 | none known |
 | 14 | 4 | 2 | 1 (Markkanen et al. 2008); the second class is new |
+| 15 | 0 | 0 | none known; `t2abc` only so far (the independent check is runbook step 13) |
 
 Both programs (`fastcodes.exhaust` and `cleanroom/t2search.c`, written
 independently) produce identical solution sets for every length from 8 to 14.
 Sources: `results/exhaust.jsonl` and `results/cleanroom/solutions_N*.txt`.
 A third program, `exhaustive/t2abc.c`, produces identical solution files for
-lengths 8–14 (`results/t2abc/`).
+lengths 8–14 (`results/t2abc/`). At length 15 it finds no set
+(`results/t2abc/runlog15.txt`, 2,211 s on 8 threads).
 
 How `t2abc` is faster: the coordinates S[1, N-3] and S[2, N-3] depend only on
 the products s[j] s[j+N-3], j = 0, 1, 2. Every binary code has one of three

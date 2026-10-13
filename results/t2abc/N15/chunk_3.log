@@ -1,0 +1,5 @@
+N=15 D=49 distinct_vectors=4160 A=1056 B=2048 C=1056 left=3.11e+11 right=7.35e+11 prime=74279 tasks=11141..14855 table=32.0MB/thread scan_overhead=0.19 threads=8 seed=0x7432abc setup=0.0s
+  [N=15] 1815/3714 tasks (48.9%), 60 s elapsed, about 63 s left, 0 solutions, 35 candidates
+  [N=15] 3532/3714 tasks (95.1%), 120 s elapsed, about 6 s left, 0 solutions, 61 candidates
+  [N=15] 3714/3714 tasks (100.0%), 126 s elapsed, about 0 s left, 0 solutions, 65 candidates
+RESULT N=15 count=0 tasks=11141..14855 of 74279 search_time=125.6 s candidates=65 work=52332257956

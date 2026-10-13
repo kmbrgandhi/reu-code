@@ -19,7 +19,9 @@ every binary type-2 set of 8 codes of a given length, confirmed by an
 independent implementation. We find 86, 78, 150, 118, 18, 0, and 4 sets for
 lengths 8–14. The counts for lengths 8–10 reproduce Sulzer's. We show that no
 set of 8 codes exists at length 13, and we report a second length-14 set that
-is inequivalent to the published one. [Length 15 result.] We also identify
+is inequivalent to the published one. [Length 15 result: `t2abc` finds no
+set (`results/t2abc/runlog15.txt`); state it after the clean-room check
+agrees.] We also identify
 type-2 sets whose codes form complementary sets, which give a sidelobe-free
 power profile from the same transmissions, and 4-phase type-2 sets of 4 codes
 up to length 8.
@@ -72,8 +74,10 @@ up to length 8.
   - The Markkanen et al. (2008) length-14 set is found.
 - Computational cost: the work grows by about 16× per length. Length 14 took
   1,361 s with the clean-room program on 8 threads
-  (`results/cleanroom/runlog14.txt`). [Add the `t2abc` timings for N = 14 and
-  15 from a full 8-thread run.]
+  (`results/cleanroom/runlog14.txt`). `t2abc` took 287 s of wall time and
+  458 s of CPU time on 2 threads at N = 14 (`results/t2abc/runlog14.txt`), and
+  2,211 s of search time on 8 threads at N = 15, in 20 chunks
+  (`results/t2abc/runlog15.txt`).
 
 ## 4. Results
 
@@ -89,7 +93,7 @@ up to length 8.
 | 12 | 18 | 9 | 1 (partial) |
 | 13 | 0 | 0 | — |
 | 14 | 4 | 2 | — |
-| 15 | [ ] | [ ] | — |
+| 15 | 0 [clean-room check pending] | 0 | — |
 
 - **Length 11:** discuss 118 versus 85. Both of Sulzer's published sets appear in
   our lists. His Table 3 implies about 30 days of computing for N = 11.
@@ -169,7 +173,10 @@ GitHub: kmbrgandhi/reu-code, branch `fast-search`.
 
 ## Open items before submission
 
-- [ ] Length-15 run (`bash runs/resume.sh`; progress with `bash runs/progress.sh 15`).
+- [x] Length-15 run with `t2abc`: 0 sets (2026-10-13, `results/t2abc/runlog15.txt`).
+- [ ] Independent length-15 run with the clean-room program (runbook step 13,
+  about 11 hours, estimate). The first attempt was lost to a power loss.
+- [ ] Length-16 run with `t2abc` (runbook step 15, started 2026-10-13).
 - [ ] Close the literature gap: about 19 papers citing Sulzer that only Google
   Scholar lists, and NASA ADS. Both were blocked to automated access.
 - [x] Novelty check of the doubly complementary and polyphase claims: no prior

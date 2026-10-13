@@ -253,8 +253,7 @@ program (`results/t2abc/runlog14.txt`, `results/cleanroom/runlog14.txt`).
 
 The run is split into 20 chunks. If it is interrupted, start it again with
 the same command: finished chunks are skipped. Memory use is about 0.4 GB
-(estimate from a 2-thread sample). The time is also an estimate from short
-samples; a full 8-thread run hasn't been timed yet.
+(estimate from a 2-thread sample).
 
 ```sh
 bash runs/start.sh step14
@@ -263,11 +262,17 @@ bash runs/start.sh step14
 To check progress, run `bash runs/progress.sh 15`. The script reports both
 programs.
 
+**Result (2026-10-13):** no set of 8 codes at length 15. The run took 2,211 s
+of search time on 8 threads (`results/t2abc/runlog15.txt`), and all 20 chunks
+report 0 sets. Before you call this a proof, run step 13 as an independent
+check.
+
 ## Step 15: Complete search at length 16 (estimate: 7–12 hours, overnight)
 
 This is the same program at length 16, which needs about 16 times the work of
 length 15. The estimate comes from a short 2-thread sample (about 33 CPU cycles
-per combination, 279,187 tasks). It uses 128 MB tables per thread, about
+per combination, 279,187 tasks). Scaling the length-15 run (2,211 s) by 16
+gives about 10 hours (estimate). It uses 128 MB tables per thread, about
 1.3 GB of memory in total (estimate). The run is split into 40 chunks, so you
 can stop it in the morning (`kill $(bash runs/searchpids.sh)`) and start it
 again the next night with the same command. Only the unfinished chunk is lost.
